@@ -35,25 +35,25 @@
 - Contraseña : admin1024*
 
 ### 🏁 Inicio de Sesión
-![Login](wwwroot/img/screenshots/login.png)
+![Login](AppWeb/wwwroot/img/screenshots/login.png)
 
 ### 🏁 Registrar Usuario
-![Register](wwwroot/img/screenshots/register.png)
+![Register](AppWeb/wwwroot/img/screenshots/register.png)
 
 ### 🏁 Dashboard
-![Dashboard](wwwroot/img/screenshots/dashboard.png)
+![Dashboard](AppWeb/wwwroot/img/screenshots/dashboard.png)
 
 ### 🏁 Creacion de Solicitud
-![Create](wwwroot/img/screenshots/nueva_solicitud.png)
+![Create](AppWeb/wwwroot/img/screenshots/nueva_solicitud.png)
 
 ### 📋 Solicitud Registrado
-![SolicitudRegistrado](wwwroot/img/screenshots/solicitud_registrada.png)
+![SolicitudRegistrado](AppWeb/wwwroot/img/screenshots/solicitud_registrada.png)
 
 ### 🆕 Eliminar Solicitud
-![Eliminar](wwwroot/img/screenshots/eliminar.png)
+![Eliminar](AppWeb/wwwroot/img/screenshots/eliminar.png)
 
 ### 🗑️ Solicitudes Eliminadas
-![Solicitudes Eliminadas](wwwroot/img/screenshots/solicitudes_eliminadas.png)
+![Solicitudes Eliminadas](AppWeb/wwwroot/img/screenshots/solicitudes_eliminadas.png)
 
 ### 🗑️ Duplicacion de Error (Crear Solicitud)
-![Error](wwwroot/img/screenshots/duplicacion_error.png)
+![Error](AppWeb/wwwroot/img/screenshots/duplicacion_error.png)
