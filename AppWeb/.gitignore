@@ -1,0 +1,34 @@
+# Archivos de compilación
+bin/
+obj/
+out/
+
+# Configuración de usuario
+*.user
+*.suo
+.vs/
+.vscode/
+.vsconfig
+
+# Archivos temporales del sistema
+Thumbs.db
+.DS_Store
+
+# Archivos de base de datos local
+*.db
+*.sqlite
+
+# Archivos de log
+*.log
+
+# Configuración sensible
+.env
+appsettings.Development.json
+appsettings.Local.json
+
+# Archivos de publicación
+publish/
+Generated_Code/
+
+# Node.js
+node_modules/

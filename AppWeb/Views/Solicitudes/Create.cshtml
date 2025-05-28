@@ -1,0 +1,46 @@
+﻿@model AppWeb.Models.Solicitud
+@{
+    ViewData["Title"] = "Nueva Solicitud";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="container py-4 px-3 px-md-5">
+    <div class="card shadow border-0">
+        <div class="card-header bg-white d-flex align-items-center">
+            <i class="bi bi-journal-plus fs-4 text-success me-2"></i>
+            <h5 class="mb-0 fw-semibold text-dark">Registrar Nueva Solicitud</h5>
+        </div>
+
+        <div class="card-body">
+            <form asp-action="Create" method="post" class="needs-validation" novalidate>
+                @Html.AntiForgeryToken()
+
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label asp-for="CodigoSolicitud" class="form-label fw-semibold text-dark">Código</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-light"><i class="bi bi-hash"></i></span>
+                            <input asp-for="CodigoSolicitud" class="form-control" placeholder="Ej: C00123" required />
+                        </div>
+                        <span asp-validation-for="CodigoSolicitud" class="text-danger small"></span>
+                    </div>
+
+                    <div class="col-md-12">
+                        <label asp-for="Detalle" class="form-label fw-semibold text-dark">Detalle de la solicitud</label>
+                        <textarea asp-for="Detalle" class="form-control" rows="5" placeholder="Describe el propósito de esta solicitud..." required></textarea>
+                        <span asp-validation-for="Detalle" class="text-danger small"></span>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-end gap-2 mt-4">
+                    <a asp-action="Index" class="btn btn-outline-secondary">
+                        <i class="bi bi-arrow-left me-1"></i> Cancelar
+                    </a>
+                    <button type="submit" class="btn btn-success shadow-sm">
+                        <i class="bi bi-check-circle me-1"></i> Guardar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

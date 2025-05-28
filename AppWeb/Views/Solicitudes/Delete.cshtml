@@ -1,0 +1,51 @@
+﻿@model AppWeb.Models.Solicitud
+
+@{
+    ViewData["Title"] = "Eliminar Solicitud";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="container px-3 px-md-5 pt-4">
+    <div class="card shadow border-0">
+        <div class="card-header bg-white d-flex align-items-center">
+            <i class="bi bi-exclamation-triangle-fill fs-4 text-danger me-2"></i>
+            <h5 class="mb-0 text-danger">¿Estás seguro de eliminar esta solicitud?</h5>
+        </div>
+
+        <div class="card-body">
+            <dl class="row mb-4">
+                <dt class="col-sm-3 fw-semibold text-muted">Código</dt>
+                <dd class="col-sm-9">@Model.CodigoSolicitud</dd>
+
+                <dt class="col-sm-3 fw-semibold text-muted">Detalle</dt>
+                <dd class="col-sm-9">@Model.Detalle</dd>
+
+                <dt class="col-sm-3 fw-semibold text-muted">Registrado por</dt>
+                <dd class="col-sm-9">@Model.UsuarioRegistro</dd>
+
+                <dt class="col-sm-3 fw-semibold text-muted">Fecha</dt>
+                <dd class="col-sm-9">@Model.FechaRegistro.ToString("dd/MM/yyyy")</dd>
+            </dl>
+
+            <form asp-action="DeleteConfirmed" method="post">
+                <input type="hidden" name="id" value="@Model.Id" />
+
+                <div class="mb-4">
+                    <label for="motivo" class="form-label fw-semibold text-danger">
+                        <i class="bi bi-chat-left-text"></i> Motivo de eliminación (opcional)
+                    </label>
+                    <textarea name="motivo" class="form-control" rows="3" placeholder="Ejemplo: Solicitud duplicada o ingresada por error."></textarea>
+                </div>
+
+                <div class="d-flex justify-content-end gap-2">
+                    <a asp-action="Index" class="btn btn-secondary">
+                        <i class="bi bi-x-circle me-1"></i> Cancelar
+                    </a>
+                    <button type="submit" class="btn btn-danger shadow-sm">
+                        <i class="bi bi-trash-fill me-1"></i> Eliminar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

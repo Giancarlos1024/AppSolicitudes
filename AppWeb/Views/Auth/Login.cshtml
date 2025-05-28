@@ -1,0 +1,76 @@
+﻿@{
+    ViewData["Title"] = "Iniciar sesión";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Login - AppWeb</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="container-fluid h-100">
+        <div class="row h-100">
+           
+            <div class="col-md-6 split-left">
+                <div class="form-container">
+                    <div class="mb-4 text-start">
+                        <div class="logo mb-2">
+                            <span class="bg-primary text-white px-2 py-1 rounded">A</span> <span>AppWeb</span>
+                        </div>
+                        <h3 class="fw-bold">Bienvenido</h3>
+                        <p class="text-muted">Ingresa con tu usuario y contraseña</p>
+                    </div>
+
+                    <form asp-action="Login" method="post" novalidate>
+                        <div class="mb-3">
+                            <label for="usuario" class="form-label">Usuario</label>
+                            <input type="text" id="usuario" name="usuarioNombre" class="form-control" placeholder="Ej: admin" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="contrasena" class="form-label">Contraseña</label>
+                            <input type="password" id="contrasena" name="contrasena" class="form-control" placeholder="********" required />
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100">Iniciar sesión</button>
+
+                        @if (ViewBag.Mensaje != null)
+                        {
+                            <div id="mensajeError" class="alert alert-danger mt-3 text-center">
+                                @ViewBag.Mensaje
+                            </div>
+                        }
+                    </form>
+
+                    <div class="text-center mt-4">
+                        <p class="mb-0">¿No tienes una cuenta?</p>
+                        <a asp-controller="Auth" asp-action="Register" class="btn btn-outline-secondary btn-sm mt-2">
+                            Crear cuenta nueva
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 split-right d-none d-md-block"></div>
+        </div>
+    </div>
+    <script>
+        window.onload = function () {
+            const alerta = document.getElementById('mensajeError');
+            if (alerta) {
+                setTimeout(() => {
+                    alerta.style.display = 'none';
+                }, 3000); 
+            }
+        };
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

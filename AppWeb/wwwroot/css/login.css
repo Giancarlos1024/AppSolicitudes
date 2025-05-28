@@ -1,0 +1,44 @@
+﻿body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.split-left {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+}
+
+.split-right {
+    background-image: url('/img/appimagen.png');
+    background-size: cover;
+    background-position: center -80px;
+    background-repeat: no-repeat;
+}
+
+.split-right2 {
+    background-image: url('/img/registerImg.jpg');
+    background-size: cover;
+    background-position: center 0px;
+    background-repeat: no-repeat;
+}
+
+.form-container {
+    max-width: 400px;
+    width: 100%;
+}
+
+.form-control::placeholder {
+    font-size: 0.9rem;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+    .logo span {
+        color: #0d6efd;
+    }

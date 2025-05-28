@@ -1,0 +1,106 @@
+﻿@inject IHttpContextAccessor HttpContextAccessor
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"] - AppWeb</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .sidebar {
+            width: 250px;
+            min-height: 100vh;
+            background-color: #0B1F3A;
+            color: white;
+        }
+
+            .sidebar h5 {
+                color: #00D4FF;
+            }
+
+            .sidebar .nav-link {
+                color: #cfd8dc;
+                border-radius: 8px;
+                padding: 10px 15px;
+                transition: background-color 0.2s ease;
+            }
+
+                .sidebar .nav-link:hover,
+                .sidebar .nav-link.active {
+                    background-color: #112D4E;
+                    color: #ffffff;
+                }
+
+                .sidebar .nav-link i {
+                    margin-right: 8px;
+                }
+
+            .sidebar .user-info img {
+                border: 3px solid #00D4FF;
+            }
+
+        .logout-link {
+            color: #ef5350;
+            font-weight: 500;
+        }
+
+            .logout-link:hover {
+                color: #ff6f61;
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+    </style>
+</head>
+<body>
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <nav class="sidebar p-3 d-flex flex-column">
+
+            <div class="text-center mb-4 user-info">
+                <img src="/img/appimagen.png" class="rounded-circle mb-2" width="70" height="70" alt="Avatar">
+                <h6 class="mb-0">@HttpContextAccessor.HttpContext?.Session.GetString("Usuario")</h6>
+                <small class="text-secondary">Usuario activo</small>
+            </div>
+
+            <ul class="nav flex-column gap-1">
+                <li class="nav-item">
+                    <a class="nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Index" ? "active" : "")"
+                       asp-controller="Solicitudes" asp-action="Index">
+                        <i class="bi bi-house-door"></i> Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Create" ? "active" : "")"
+                       asp-controller="Solicitudes" asp-action="Create">
+                        <i class="bi bi-file-plus"></i> Nueva Solicitud
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Eliminadas" ? "active" : "")"
+                       asp-controller="Solicitudes" asp-action="Eliminadas">
+                        <i class="bi bi-trash"></i>Solicitudes Eliminadas
+                    </a>
+                </li>
+                <li class="nav-item mt-auto">
+                    <a class="nav-link logout-link" asp-controller="Auth" asp-action="Logout">
+                        <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Contenido principal -->
+        <main class="flex-grow-1 p-4 bg-light" style="min-height: 100vh;">
+            @RenderBody()
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
